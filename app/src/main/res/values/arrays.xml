@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- LSPosed: Recommended apps to hook -->
+    <string-array name="xposed_scope">
+        <!-- OneRoom App -->
+        <item>com.community.oneroom</item>
+        <!-- MovieBox App -->
+        <item>com.community.mbox.in</item>
+    </string-array>
+
+    <!-- Optional: App names for display -->
+    <string-array name="xposed_scope_title" translatable="false">
+        <item>OneRoom Community</item>
+        <item>MovieBox</item>
+    </string-array>
+</resources>
