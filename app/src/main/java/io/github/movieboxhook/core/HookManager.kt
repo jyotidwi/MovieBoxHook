@@ -1,6 +1,5 @@
 package io.github.movieboxhook.core
 
-import android.app.AndroidAppHelper
 import android.content.Context
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
@@ -44,7 +43,9 @@ class HookManager(private val module: XposedModule) {
 
     private fun checkAppInstallTime(packageName: String) {
         try {
-            val context: Context? = AndroidAppHelper.currentApplication()
+            val activityThread = Class.forName("android.app.ActivityThread")
+            val currentApplication = activityThread.getDeclaredMethod("currentApplication")
+            val context = currentApplication.invoke(null) as? Context
             if (context == null) {
                 Logger.warn("Context null, skipping install time check")
                 return
